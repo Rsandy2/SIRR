@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+  scroll-behavior: smooth;
+}
+
+:root {
+  /*--------------- Color Themes ---------------*/
+
+  --black: #160706;
+  --light-black: #17181b;
+  --alternate: #17141d;
+  --white: #f9f6f5;
+  --light-white: #f7f8fc;
+  --contrast-white: #f2f3f4;
+  --default-white: #fff;
+
+  --red: #982505;
+  --pink-red: #f5918f;
+  --light-red: #d55c5a;
+  --dark-red: #894242;
+
+  --pink: #e52e71;
+  --pole-black: #040507;
+  --black-gravel: #243956;
+  --gravel-white: #070b0e;
+
+  --gray: #7c7c7c;
+
+  --border-line: #ecf2ff;
+  --thicker-border-line: #efefef;
+
+  --shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  --shadow-def-normal: 0 4px 5px rgba(0, 0, 0, 0.2);
+
+  /*--------------- Font Details ---------------*/
+
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+
+  /*--------------- Size Details ---------------*/
+
+  --navigation-bar: 76px;
+  --navigation-spacing: 44px;
+
+  --font-size-small-one: 0.25rem;
+  --font-size-small-two: 0.5rem;
+  --font-size-small-three: 0.75rem;
+
+  --font-size-medium-one: 1rem;
+  --font-size-medium-two: 1.25rem;
+  --font-size-medium-three: 1.5rem;
+}
+
+/*--------------- Offsets ---------------*/
+
+a,
+ul,
+li,
+div,
+p,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.03rem;
+}
+
+body {
+  background-color: var(--contrast-white);
+  /* background-color: #040507; */
+  color: var(--light-blackite);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--light-black);
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 80vw;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
