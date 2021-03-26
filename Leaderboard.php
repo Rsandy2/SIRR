@@ -36,30 +36,34 @@
     <?php
     //$username = $_GET["username"];
     //$score = $_GET["score"];
-    $username = "NEW";
-    $score = 20;
+    $username = "John";
+    $score = 22;
     $lb = file("leaderboard.txt");
-
+    $place = 0;
     $spliceCheck = false;
-    for ($i = 1; $i <= 10; $i++) {
-    	$array = explode(",",$lb[$i-1]);
+    for ($i = 1; $i <= count($lb); $i++) {
+      $array = explode(",",$lb[$i-1]);
 
-    	if((!$spliceCheck) && $score >= $array[1]){
-    		array_splice($lb, $i, 0, $username.",".$score."\n");
-    		$spliceCheck = true;
-    	}
-
-    	echo "<tr>
-    			<td>{$i}</td>
-    			<td>{$array[0]}</td>
-	          	<td>{$array[1]}</td>
-          	</tr>";
+      if((!$spliceCheck) && $score >= $array[1]){
+        array_splice($lb, $i-1, 0, $username.",".$score."\n");
+        $spliceCheck = true;
+        $place = $i;
+      }
+      if($i<11){
+      echo "<tr>
+          <td>{$i}</td>
+          <td>{$array[0]}</td>
+              <td>{$array[1]}</td>
+            </tr>";
+      }
     }
     if($spliceCheck){
-	    implode("/n", $lb);
-	    file_put_contents("leaderboard.txt", $lb);
-	}
-	?>
+      implode("/n", $lb);
+      file_put_contents("leaderboard.txt", $lb);
+   }
+   echo "You placed number {$place} on the leaderboard!";
+    
+  ?>
 
     
 
