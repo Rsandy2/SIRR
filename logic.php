@@ -20,7 +20,7 @@
         $content[] = explode("|", $line);
     }
 
-    print_r ($content);
+    // print_r($content);
 
     function addUser($name){
 

@@ -29,65 +29,32 @@
     <?php 
             session_start(); 
             include("logic.php");
+            if(isset($_POST['username'])){
             $_SESSION['username'] = $_POST['username'];
             $_SESSION['count'] = 0;
-            echo $_SESSION['username'];
-            if($_POST["answer"]){
-              echo $_POST["answer"];
-              echo $content[$_SESSION['count']][5];
-              // echo getty/pe($_POST["answer"]);
-              // echo gettype($content[$_SESSION['count']][5]);
             }
-            // if(isset($_POST["answer"])){
-            // if(strcmp($_POST["answer"] , $content[$_SESSION['count']][5])){
-            //   echo "test";
-            // }else{
-            //   echo "fail";
-            // }}
-            // include("login.php");
-            //incrementation
-            
-                // if(isset($_POST["answer"])){
-                //     if($_POST['answer'] != $content[$_SESSION['count']][5]){
-                //         header("Location: Leaderboard.php");
-                //         exit();
-                //     }
-                   
-                //     $_SESSION['count']++;
-                // }
-                login($_SESSION['username']);
-                // $file = file_get_contents("acct.txt");
-                // $users = explode("\n", $file);
-                
-                // $result = array_search($_SESSION['username'], $users, true);
-                // //if name is not found
-                // if($result === false){
-                //     addUser($_SESSION['username']);
-                //     echo '<div class="welcome-message">Good luck <p>'. $_SESSION['username'] . '</p></div>';
-                // }
-                // //if found
-                // else{
-                //     // echo "<div class='welcome-message'>" . $name . "</div>";
-                //     echo '<div class="welcome-message">Welcome back <p>'. $_SESSION['username'] . '</p></div>';
-                // }
 
-                
-            
-            //setting username if on first iteration
-            // if($_SESSION['count'] == 0){
-            //     $_SESSION['username'] = login($_SESSION['username']);;
+            login($_SESSION['username']);
+
+            // if(isset($_POST['answer'])){
+            //   $_SESSION['count']++;
             // }
-            // //adding username and printing name
-            // login($_SESSION['username']);
-            // echo $_SESSION['count'];
-            // echo " answer:" . $content[$_SESSION['count']][5];
+            if(isset($_POST["answer"])){
+              if(intval($_POST['answer']) != intval($content[$_SESSION['count']][5])){
+                 header("Location: Leaderboard.php");
+                  exit();
+              }
+
+             $_SESSION['count']++;
+          }
+         
             ?>
              
   <!--------------- Quiz Section --------------->
   <section class="quiz-section">   
 
         
-        <form action="verify.php" method = "post">
+        <form action="quiz.php" method = "post">
             
             <div class="quiz-header">
               <h2><?=$_SESSION['count']?> / <?=sizeof($content)?></h2>

@@ -1,14 +1,15 @@
 <?php
-   include("logic.php");
+   // include("logic.php");
    session_start();
    if (isset($_SESSION['username'])) {
-     // This session already exists, should already contain data
-      //  echo "User ID:", $_SESSION['username'], "<br />";
-      // login($_SESSION['username']);
+   //   echo "session active";
    } else {
        // New PHP Session / Should Only Be Run Once/Rarely/Login/Logout
-
-       login($_SESSION['username']);
+       $_SESSION['username'] = $_POST['username'];
+       $_SESSION['count'] = 0;
+      //  login($_SESSION['username']);
+      header("Location: login.php");
+                //         exit();
       
    }
 
