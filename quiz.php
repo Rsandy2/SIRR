@@ -45,6 +45,10 @@
                   exit();
               }
 
+            if($count>=10){
+              header("Location: Leaderboard.php");
+            }
+
              $_SESSION['count']++;
           }
          

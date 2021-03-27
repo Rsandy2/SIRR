@@ -34,13 +34,9 @@
     </tr>
 
     <?php
-    //$username = $_GET["username"];
-    //$score = $_GET["score"];
-
- 
     $username = $_SESSION['username'];
-    echo $_SESSION['username'];
-    $score = 22;
+    $score = $_SESSION['count'];
+
     $lb = file("leaderboard.txt");
     $place = 0;
     $spliceCheck = false;
@@ -52,20 +48,26 @@
         $spliceCheck = true;
         $place = $i;
       }
-      if($i<11){
-      echo "<tr>
-          <td>{$i}</td>
-          <td>{$array[0]}</td>
-              <td>{$array[1]}</td>
-            </tr>";
-      }
+    }
+    for($i=1; $i <= 11 && $i<= count($lb); $i++){
+      $array = explode(",",$lb[$i-1]);
+      echo("
+          <tr>
+            <td>{$i}</td>
+            <td>{$array[0]}</td>
+            <td>{$array[1]}/10</td>
+      ");
     }
     if($spliceCheck){
       implode("/n", $lb);
       file_put_contents("leaderboard.txt", $lb);
    }
-   echo "You are {$place} on the leaderboard!";
-    
+   if($score == 10){
+    echo "Congrats you got a perfect score! You are on the top of the leaderboard!";
+   }
+   else{
+    echo "You are number {$place} on the leaderboard with {$score} out of 10 correct!";
+  }
   ?>
 
     
