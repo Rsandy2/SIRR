@@ -40,15 +40,28 @@
     $lb = file("leaderboard.txt");
     $place = 0;
     $spliceCheck = false;
+
     for ($i = 1; $i <= count($lb); $i++) {
-      $array = explode(",",$lb[$i-1]);
+      $array = explode(",",$lb[$i-1]);     
 
       if((!$spliceCheck) && $score >= $array[1]){
         array_splice($lb, $i-1, 0, $username.",".$score."\n");
         $spliceCheck = true;
         $place = $i;
       }
+      if($i == count($lb) && !$spliceCheck){
+        array_push($lb, $username.",".$score."\n");
+        $spliceCheck = true;
+      }
     }
+
+    if(count($lb) == 0){
+        array_push($lb, $username.",".$score."\n");
+        $place = 1;
+
+      echo "Yerr";
+
+      }
     for($i=1; $i <= 11 && $i<= count($lb); $i++){
       $array = explode(",",$lb[$i-1]);
       echo("
@@ -58,10 +71,9 @@
             <td>{$array[1]}/10</td>
       ");
     }
-    if($spliceCheck){
-      implode("/n", $lb);
-      file_put_contents("leaderboard.txt", $lb);
-   }
+    implode("/n", $lb);
+    file_put_contents("leaderboard.txt", $lb);
+   
    if($score == 10){
     echo "Congrats you got a perfect score! You are on the top of the leaderboard!";
    }
