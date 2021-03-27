@@ -1,16 +1,3 @@
-<?php
-
-#Start sessions with the login page
-session_start();
-$_SESSION['count'] = 0;
-$_SESSION['username'] = "";
-?>
-
-
-
-
-
-<!--  -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +32,7 @@ $_SESSION['username'] = "";
       <div class="content-image">
                   <img src="assets/1138202.jpg" alt="" />
                 </div>
-        <form class="form-container"id="Login" action="hstuff.php" method="POST">
+        <form class="form-container"id="Login" action="quiz.php" method="POST">
           <div class="form-item">
             <input
               type="text"

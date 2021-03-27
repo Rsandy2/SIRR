@@ -1,4 +1,4 @@
-
+<?php require "islogged.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </nav>
-    
+
 <table>
     <tr>
         <td>Rank</td>
@@ -36,7 +36,10 @@
     <?php
     //$username = $_GET["username"];
     //$score = $_GET["score"];
-    $username = "John";
+
+ 
+    $username = $_SESSION['username'];
+    echo $_SESSION['username'];
     $score = 22;
     $lb = file("leaderboard.txt");
     $place = 0;
@@ -61,7 +64,7 @@
       implode("/n", $lb);
       file_put_contents("leaderboard.txt", $lb);
    }
-   echo "You placed number {$place} on the leaderboard!";
+   echo "You are {$place} on the leaderboard!";
     
   ?>
 
